@@ -19,19 +19,45 @@ def recommend(title):
 
     return recommended_games_names,recommended_games_posters,recommended_games_developer,recommended_games_ratings
 
-page_bg_img = '''
-<style>
+# Mengubah tema menjadi "dark"
+st.markdown(
+    """
+    <style>
+        .reportview-container {
+            background: #1a1a1a;
+            color: #fff;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .sidebar .sidebar-content {
+            background: #1a1a1a;
+        }
 
-      .stApp {
-  background-image: url("https://i.imgur.com/L9NPXnd.png");
-  background-size: cover;
-}
-</style>
-'''
+        /* Gambar background untuk perangkat seluler */
+        @media (max-width: 767px) {
+            .stApp {
+                background-image: url("https://imgur.com/uENp6tw.png");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+        }
 
-st.markdown(page_bg_img, unsafe_allow_html=True)
+        /* Gambar background untuk desktop */
+        @media (min-width: 768px) {
+            .stApp {
+                background-image: url("https://i.imgur.com/L9NPXnd.png");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-title = Image.open('title2.png')
+title = Image.open('title.png')
 st.image(title)
 st.subheader('  ')
 
